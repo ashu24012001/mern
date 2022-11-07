@@ -13,8 +13,13 @@ const app = express();
 
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 app.use(express.static(path.join("public")));
+=======
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+app.use(express.static(path.join('public')));
+>>>>>>> 80084fefc8e07c14e129244b90ba9f2c60a87e39
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -30,7 +35,11 @@ app.use((req, res, next) => {
 app.use("/api/places", placesRoutes);
 app.use("/api/users", usersRoutes);
 
+<<<<<<< HEAD
 app.use((req, res, next) => {
+=======
+app.use((req, res, next)=>{
+>>>>>>> 80084fefc8e07c14e129244b90ba9f2c60a87e39
   res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
@@ -54,8 +63,12 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
+<<<<<<< HEAD
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.hsy1y.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }
+=======
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.hsy1y.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true }
+>>>>>>> 80084fefc8e07c14e129244b90ba9f2c60a87e39
   )
   .then(() => {
     app.listen(process.env.PORT || 5000);
